@@ -11,10 +11,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+
 /**
- * Created by cy on 4/6/16.
- * <p/>
- * 功能描述:
+ * Created by
+ * @author fallwater on 2017/10/30.
+ * 功能描述:SP存储工具类
  */
 public class SharedPrefsUtils {
 

@@ -8,9 +8,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 
+
 /**
- * Created by XiaoJianjun on 2017/3/7.
- * os相关的工具类.
+ * Created by
+ * @author fallwater on 2017/10/30.
+ * 功能描述:系统工具类
  */
 public class OsUtil {
 

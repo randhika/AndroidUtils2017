@@ -1,9 +1,6 @@
 package com.fallwater.utilslibrary.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
-
-import org.cy.uilibrary.BuildConfig;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -13,9 +10,9 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 /**
- * Created by cy on 2017/9/6.
- * <p/>
- * 功能描述:加密工具类,有条件做成.so库
+ * Created by
+ * @author fallwater on 2017/10/30.
+ * 功能描述:加密工具类
  */
 public class SecurityUtils {
 
@@ -63,9 +60,6 @@ public class SecurityUtils {
             }
             return buffer.toString();
         } catch (Exception e) {
-            if (BuildConfig.DEBUG) {
-                Log.e("SecurityUtils", e.getMessage());
-            }
         }
         return "";
     }

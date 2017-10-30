@@ -4,6 +4,12 @@ package com.fallwater.utilslibrary.utils;
 import android.text.TextUtils;
 import android.util.Log;
 
+
+/**
+ * Created by
+ * @author fallwater on 2017/10/30.
+ * 功能描述:进制转换工具类
+ */
 public class HexUtils {
 
     /**

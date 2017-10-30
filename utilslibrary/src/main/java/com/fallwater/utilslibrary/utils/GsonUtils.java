@@ -29,6 +29,11 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+/**
+ * @author fallwater
+ * on 2017/10/30
+ * 功能描述：Gson工具
+ */
 public class GsonUtils {
     static final Type[] EMPTY_TYPE_ARRAY = new Type[0];
 
