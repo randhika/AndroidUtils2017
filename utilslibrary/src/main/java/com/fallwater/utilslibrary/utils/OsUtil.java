@@ -1,10 +1,18 @@
 package com.fallwater.utilslibrary.utils;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.os.BatteryManager;
 import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.WindowManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,6 +28,10 @@ import java.util.List;
  *         功能描述:系统工具类
  */
 public class OsUtil {
+
+    private static boolean sIsCheck;
+
+    private static boolean sIsPhoneRunCache;
 
     /**
      * 是否为MIUI系统
@@ -167,4 +179,80 @@ public class OsUtil {
             return null;
         }
     }
+
+    /**
+     * 检查当前屏幕的物理尺寸
+     * 小于6.4认为是手机，否则认为是电视
+     */
+    public static boolean checkScreenIsPhone(Context context) {
+        WindowManager windowManager = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+        Display display = windowManager.getDefaultDisplay();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        display.getMetrics(displayMetrics);
+        double x = Math.pow(displayMetrics.widthPixels / displayMetrics.xdpi, 2);
+        double y = Math.pow(displayMetrics.heightPixels / displayMetrics.ydpi, 2);
+
+        double screenInches = Math.sqrt(x + y);
+        return screenInches < 6.5;
+    }
+
+    /**
+     * 检查当前设备布局尺寸
+     * 如果是SIZE_LARGE 就认为是大屏幕的
+     */
+    public static boolean checkScreenLayoutIsPhone(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK) <= Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
+
+    /**
+     * 检查sim卡状态，如果没有检测到，认为是电视
+     * public static final int PHONE_TYPE_CDMA = 2;
+     * public static final int PHONE_TYPE_GSM = 1;
+     * public static final int PHONE_TYPE_NONE = 0;
+     * public static final int PHONE_TYPE_SIP = 3;
+     */
+    public static boolean checkTelephonyIsPhone(Context context) {
+        TelephonyManager telephonyManager = (TelephonyManager) context
+                .getSystemService(Context.TELEPHONY_SERVICE);
+        return telephonyManager.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE;
+    }
+
+    /**
+     * 检查当前电源输入状态，来判断当前到底是电视还是手机
+     */
+    public static boolean checkBatteryIsPhone(Context context) {
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = context.registerReceiver(null, intentFilter);
+        /**
+         * 当前是否在充电
+         */
+        int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+        boolean isCharging = status == BatteryManager.BATTERY_STATUS_FULL;
+
+        /**
+         * 是否使用ac充电
+         */
+        int chargePlug = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+        boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
+
+        return !(isCharging && acCharge);
+    }
+
+    /**
+     * 综合判断是否运行在手机端
+     */
+    public static boolean isPhoneRunning(Context context) {
+        if (!sIsCheck) {
+            sIsPhoneRunCache = checkBatteryIsPhone(context)
+                    && checkScreenLayoutIsPhone(context)
+                    && checkTelephonyIsPhone(context)
+                    && checkScreenIsPhone(context);
+            sIsCheck = true;
+        }
+        return sIsPhoneRunCache;
+    }
+
+
 }
