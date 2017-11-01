@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.ScrollView;
 
+
 /**
  * Created by
- *
  * @author fallwater on 2017/10/31.
  * 功能描述:ScrollView反弹效果的实现
  */
