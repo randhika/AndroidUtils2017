@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--loading view color-->
+    <color name="loading_triangle">@android:color/holo_green_light</color>
+    <color name="loading_circle">@android:color/holo_green_light</color>
+    <color name="loading_rect">@android:color/holo_green_light</color>
+    <color name="view_bg">@android:color/transparent</color>
+    <color name="shadow">@android:color/holo_green_light</color>
+    <color name="dialog_bg">@android:color/holo_green_light</color>
+</resources>
