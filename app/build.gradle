@@ -98,6 +98,5 @@ dependencies {
 
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.9.0'
-
-
+    compile 'io.reactivex:rxandroid:1.2.1'
 }

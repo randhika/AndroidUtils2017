@@ -3,21 +3,27 @@ package com.fallwater.utilslibrary.common;
 import android.os.Bundle;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
+import rx.subjects.PublishSubject;
 
 
 /**
  * Created by
  *
  * @author fallwater on 2017/11/01.
- * 功能描述:BaseActivity
+ *         功能描述:BaseActivity
  */
 public abstract class BaseActivity extends BaseToolBarActivity {
+
+    public final PublishSubject<ActivityLifeCycleEvent> mLifecycleSubject = PublishSubject.create();
+
+    private Unbinder mUnBinder;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(initLayoutId());
-        ButterKnife.bind(this);
+        initBeforeViewSelf();
         initBeforeView();
         initView(savedInstanceState);
         initListener();
@@ -48,6 +54,15 @@ public abstract class BaseActivity extends BaseToolBarActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        UnInitOnDestroy();
+    }
+
+    private void UnInitOnDestroy() {
+        mUnBinder.unbind();
+    }
+
+    private void initBeforeViewSelf() {
+        mUnBinder = ButterKnife.bind(this);
     }
 
     /**
