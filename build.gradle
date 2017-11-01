@@ -2,22 +2,32 @@
 
 def gsonVersion = "2.8.0"
 def butterKnifeVersion = "8.7.0"
+def retrofit2Version = "2.1.0"
+def retrofit2AdapterJavaVersion = "2.1.0"
+def retrofit2ConvertGsonVersion = "2.1.0"
+def retrofit2ConvertScalarsVersion = "2.1.0"
 
 buildscript {
-    
+
     repositories {
         google()
         jcenter()
+        mavenLocal()
+        maven { url 'https://jitpack.io' }
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     }
 }
 
 allprojects {
     repositories {
-        google()
         jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        google()
     }
 }
 
@@ -25,11 +35,18 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-project.ext{
+project.ext {
     buildToolsVersion = '26.0.2'
     compileSdkVersion = 26
     targetSdkVersion = 22
     minSdkVersion = 14
+    javaVersion = org.gradle.api.JavaVersion.VERSION_1_8
+
     libGson = "com.google.code.gson:gson:${gsonVersion}"
     libButterKnife = "com.jakewharton:butterknife:${butterKnifeVersion}"
+    libRetrofit2 = "com.squareup.retrofit2:retrofit:${retrofit2Version}"
+    libRetrofit2AdapterJava = "com.squareup.retrofit2:adapter-rxjava:${retrofit2AdapterJavaVersion}"
+    libRetrofit2ConvertGson = "com.squareup.retrofit2:converter-gson:${retrofit2ConvertGsonVersion}"
+    libRetrofit2ConvertScalars =
+            "com.squareup.retrofit2:converter-scalars:${retrofit2ConvertScalarsVersion}"
 }

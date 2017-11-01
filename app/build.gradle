@@ -1,24 +1,87 @@
 apply plugin: 'com.android.application'
 
+def static revision() {
+    def cmd = 'git rev-list HEAD --first-parent --count'
+    def gitVersion = cmd.execute().text.trim().toString()
+    return gitVersion
+}
+
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.fallwater.androidutils2017"
-        minSdkVersion 23
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "versionCode"
     }
-    buildTypes {
+
+    //签名配置
+    signingConfigs {
         release {
-            minifyEnabled false
+        }
+
+        debug {}
+    }
+
+    buildTypes {
+        //发布版本，有混淆
+        release {
+            versionNameSuffix "-" + revision()
+            minifyEnabled true
+            shrinkResources true // 是否去除无效的资源文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            manifestPlaceholders = [
+                    app_icon: "@mipmap/ic_launcher"
+            ]
+
+        }
+        //调试版本，无混淆
+        debug {
+            versionNameSuffix "-" + revision() + "-beta"
+            applicationIdSuffix '.develop'
+            useProguard false
+            debuggable true
+            signingConfig signingConfigs.release
+            manifestPlaceholders = [
+                    app_icon: "@drawable/ic_launcher"
+            ]
+        }
+    }
+
+    productFlavors {
+        //开发环境
+        develop {
+            buildConfigField "int", "ENV_TYPE", "1"
+            manifestPlaceholders = [
+                    app_name: "开发版",
+            ]
+        }
+        //测试环境
+        check {
+            buildConfigField "int", "ENV_TYPE", "2"
+            manifestPlaceholders = [
+                    app_name: "测试版",
+                    app_icon: "@mipmap/ic_launcher"
+            ]
+        }
+        //生产环境
+        product {
+            buildConfigField "int", "ENV_TYPE", "3"
+            manifestPlaceholders = [
+                    app_name: "@string/app_name",
+                    app_icon: "@mipmap/ic_launcher"
+            ]
         }
     }
 }
 
 dependencies {
+    implementation project(':utilslibrary')
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -26,7 +89,15 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    implementation project(':utilslibrary')
+    implementation rootProject.ext.libRetrofit2
+    implementation rootProject.ext.libRetrofit2AdapterJava
+    implementation rootProject.ext.libRetrofit2ConvertGson
+    implementation rootProject.ext.libRetrofit2ConvertScalars
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.9.0'
 
 
 }
