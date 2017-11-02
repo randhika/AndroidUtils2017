@@ -1,6 +1,11 @@
 package com.fallwater.utilslibrary.common;
 
+import com.fallwater.utilslibrary.R;
+
+import org.greenrobot.eventbus.EventBus;
+
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -8,8 +13,6 @@ import rx.subjects.PublishSubject;
 
 
 /**
- * Created by
- *
  * @author fallwater on 2017/11/01.
  *         功能描述:BaseActivity
  */
@@ -23,8 +26,8 @@ public abstract class BaseActivity extends BaseToolBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(initLayoutId());
-        initBeforeViewSelf();
-        initBeforeView();
+        initToolBar();
+        registerOnCreate();
         initView(savedInstanceState);
         initListener();
         initDataOnCreate();
@@ -39,36 +42,50 @@ public abstract class BaseActivity extends BaseToolBarActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        mLifecycleSubject.onNext(ActivityLifeCycleEvent.STOP);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        mLifecycleSubject.onNext(ActivityLifeCycleEvent.RESUME);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        mLifecycleSubject.onNext(ActivityLifeCycleEvent.PAUSE);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        UnInitOnDestroy();
+        clearOnDestroy();
     }
 
-    private void UnInitOnDestroy() {
+    private void clearOnDestroy() {
         mUnBinder.unbind();
-    }
-
-    private void initBeforeViewSelf() {
-        mUnBinder = ButterKnife.bind(this);
+        EventBus.getDefault().unregister(this);
+        mLifecycleSubject.onNext(ActivityLifeCycleEvent.DESTROY);
+        ActivityManager.getInstance().remove(this);
     }
 
     /**
      * 初始化一些其他其他第三方的功能，比如EventBus注册，生命周期注册等
      */
-    protected abstract void initBeforeView();
+    protected void registerOnCreate() {
+        mLifecycleSubject.onNext(ActivityLifeCycleEvent.CREATE);
+        mUnBinder = ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
+        ActivityManager.getInstance().addActivity(this);
+    }
+
+    private void initToolBar() {
+        setToolbarLeftDrawable(R.drawable.svg_icon_back);
+        setToolbarTitleTextColorRes(android.R.color.holo_blue_dark);
+        setToolbarTitleTextSize(18);
+        setImmersiveStatusBar(true, ContextCompat.getColor(this, android.R.color.white));
+    }
 
     protected abstract int initLayoutId();
 

@@ -82,7 +82,7 @@ public class PersistentCookieStore implements CookieStore {
 
     @Override
     public void add(URI uri, HttpCookie cookie) {
-        // Save cookie into local store, or remove if expired
+        // Save cookie into local store, or removeAndFinish if expired
         if (onlyAcceptUriStringList != null && onlyAcceptUriStringList.size() > 0) {
             for (String uriString : onlyAcceptUriStringList) {
                 if (uriString.contains(uri.getPath())) {
