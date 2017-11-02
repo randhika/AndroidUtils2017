@@ -1,6 +1,7 @@
 package com.fallwater.androidutils2017;
 
 import com.facebook.stetho.Stetho;
+import com.orhanobut.hawk.Hawk;
 
 import android.app.Application;
 
@@ -22,5 +23,6 @@ public class MyApplication extends Application {
         super.onCreate();
         mInstance = this;
         Stetho.initializeWithDefaults(this);
+        Hawk.init(this);
     }
 }

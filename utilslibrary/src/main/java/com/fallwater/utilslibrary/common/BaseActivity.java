@@ -13,7 +13,7 @@ import rx.subjects.PublishSubject;
 
 
 /**
- * @author fallwater on 2017/11/01.
+ * @author fallwater on 2017/11/02.
  *         功能描述:BaseActivity
  */
 public abstract class BaseActivity extends BaseToolBarActivity {

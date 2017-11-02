@@ -1,8 +1,8 @@
 package com.fallwater.androidutils2017.network;
 
-import com.fallwater.androidutils2017.bean.BaseBean;
 import com.fallwater.androidutils2017.bean.LoginResultBean;
 import com.fallwater.androidutils2017.constant.UrlConstant;
+import com.fallwater.utilslibrary.bean.BaseBean;
 
 import java.util.Map;
 

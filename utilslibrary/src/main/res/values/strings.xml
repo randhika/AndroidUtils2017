@@ -4,4 +4,6 @@
     <string name="no_result">No Result</string>
     <string name="no_network">Oops, it seems there\'s a network problem&#8230;</string>
     <string name="refresh_again">Refresh Again</string>
+    <string name="networks_unavailable">No Internet Connection</string>
+    <string name="network_exception">Network Connection Failed</string>
 </resources>
