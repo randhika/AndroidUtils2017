@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AndroidUtils2017</string>
+    <string name="promotion_tips_share_for_reward">
+        Refer a friend to register with your referral code and complete a investment</string>
+    <string name="promotion_label_code">My Referral Code</string>
+    <string name="promotion_action_apply">ENTER REFERRAL CODE</string>
+    <string name="share_label_facebook">Facebook</string>
+    <string name="share_label_message">SMS</string>
+    <string name="share_label_email">Email</string>
+    <string name="share_label_whatsapp">WhatsApp</string>
+    <string name="share_label_messager">Messenger</string>
+    <string name="other_share_enter">Share via other apps</string>
+    <string name="share_app_not_install">"Not installed applications"</string>
+    <string name="title_referral_code">Referral Code</string>
 </resources>

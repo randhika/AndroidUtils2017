@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <!-- 圆角 -->
+            <solid android:color="@color/common_color_49cb58"/>
+            <!-- 为了保证理论上左右边为半圆，特将半径设为一个超常规值 -->
+            <corners android:radius="0dp"/>
+        </shape>
+    </item>
+</layer-list>

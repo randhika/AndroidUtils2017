@@ -4,4 +4,15 @@
         <attr name="loadingText" format="string"/>
         <attr name="loadingTextAppearance" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="lineTitleView">
+        <attr name="contentText" format="string|reference"/>
+        <attr name="contentSize" format="reference|dimension"/>
+        <attr name="contentColor" format="color"/>
+        <attr name="lineHeight" format="dimension"/>
+        <attr name="lineTextSpan" format="dimension"/>
+        <attr name="lineColor" format="dimension|reference"/>
+        <attr name="lineWidth" format="dimension|reference"/>
+    </declare-styleable>
+
 </resources>

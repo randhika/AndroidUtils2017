@@ -93,11 +93,14 @@ dependencies {
     implementation rootProject.ext.libRetrofit2AdapterJava
     implementation rootProject.ext.libRetrofit2ConvertGson
     implementation rootProject.ext.libRetrofit2ConvertScalars
+    implementation rootProject.ext.libButterKnife
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    implementation 'com.facebook.android:facebook-android-sdk:4.14.0'
+    implementation 'com.orhanobut:hawk:2.0.1'
+    implementation 'org.greenrobot:eventbus:3.0.0'
 
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.9.0'
     compile 'io.reactivex:rxandroid:1.2.1'
-    implementation 'com.orhanobut:hawk:2.0.1'
 }

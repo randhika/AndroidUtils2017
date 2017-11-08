@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:title="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- 图片 -->
+        <ImageView
+            android:id="@+id/coupon_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:src="@mipmap/coupon_other"/>
+
+        <TextView
+            android:id="@+id/promotion_tips_share_for_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:textColor="@color/common_color_999999"
+            android:text="@string/promotion_tips_share_for_reward"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/common_color_666666"
+            android:text="@string/promotion_label_code"/>
+
+        <!-- -->
+        <com.silvrr.finance.ui.view.LineTitleView
+            android:id="@+id/invitation_code_title"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
+            android:layout_marginTop="15dp"
+            title:contentColor="@color/common_color_666666"
+            title:contentSize="18sp"
+            title:contentText="    "
+            title:lineColor="@color/common_color_efeff4"
+            title:lineHeight="7dp"
+            title:lineTextSpan="20dp"/>
+        <!-- 分享图标 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:id="@+id/share_facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/icon_share_facebook"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-5dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/common_color_999999"
+                    android:text="@string/share_label_facebook"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:id="@+id/share_messenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+
+                    android:src="@mipmap/icon_share_messenger"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-5dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/common_color_999999"
+                    android:text="@string/share_label_messager"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:id="@+id/share_whatsapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/icon_share_whatsapp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-5dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/common_color_999999"
+                    android:text="@string/share_label_whatsapp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 其他分享入口 -->
+        <TextView
+            android:id="@+id/share_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="28dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            android:drawablePadding="6dp"
+            android:drawableRight="@mipmap/item_robot_item_more"
+            android:textSize="12sp"
+            android:textColor="@color/common_color_3e4a5a"
+            android:text="@string/other_share_enter"/>
+
+        <!-- -->
+        <TextView
+            android:id="@+id/text_invitation_apply_reward"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
+            android:gravity="center"
+            android:background="@drawable/referral_code_backgroud"
+            android:textSize="16sp"
+            android:textColor="@color/common_color_5d667c"
+            android:text="@string/promotion_action_apply"/>
+    </LinearLayout>
+</ScrollView>

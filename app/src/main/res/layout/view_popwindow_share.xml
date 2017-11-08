@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/share_sms"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/shape_bg_share_message_btn"
+            android:gravity="center"
+            android:text="@string/share_label_message"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/share_email"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_bg_share_email_btn"
+            android:gravity="center"
+            android:text="@string/share_label_email"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+        <!-- 分享到facebook-->
+        <RelativeLayout
+            android:id="@+id/share_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+            android:background="#4f68a3">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/ic_share_facebook" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/share_label_facebook"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+        </RelativeLayout>
+        <!-- 分享到messenger -->
+        <RelativeLayout
+            android:id="@+id/share_messager"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+            android:background="#4f68a3">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/ic_share_facebook" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/share_label_messager"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/share_whatapps"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+            android:background="#49cb58">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/ic_share_whatsapp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/share_label_whatsapp"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_share_close" />
+</LinearLayout>

@@ -7,4 +7,5 @@
     <color name="view_bg">@android:color/transparent</color>
     <color name="shadow">@android:color/holo_green_light</color>
     <color name="dialog_bg">@android:color/holo_green_light</color>
+    <color name="main_font_color">#333</color>
 </resources>
