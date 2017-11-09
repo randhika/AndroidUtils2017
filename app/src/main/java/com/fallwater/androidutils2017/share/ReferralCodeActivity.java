@@ -9,6 +9,8 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.share.model.ShareContent;
 import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.model.SharePhoto;
+import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.MessageDialog;
 import com.facebook.share.widget.ShareDialog;
 import com.fallwater.androidutils2017.R;
@@ -27,11 +29,15 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Telephony;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -40,6 +46,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -316,6 +323,47 @@ public class ReferralCodeActivity extends BaseActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * 分享图片到FB
+     */
+    private void shareToFBWithPic() {
+        new DownloadImgTask().execute(mStrImageUrl);
+    }
+
+    private void postFB(Bitmap bm) {
+        SharePhoto photo = new SharePhoto.Builder().setBitmap(bm).build();
+        SharePhotoContent content = new SharePhotoContent.Builder().addPhoto(photo).build();
+        ShareDialog dialog = new ShareDialog(this);
+        if (ShareDialog.canShow(SharePhotoContent.class)) {
+            dialog.show(content);
+        } else {
+            Log.d("Activity", "you cannot share photos :(");
+        }
+
+    }
+
+    private class DownloadImgTask extends AsyncTask<String, Void, Bitmap> {
+
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap bm = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                bm = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return bm;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            postFB(result);
         }
     }
 
