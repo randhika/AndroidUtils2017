@@ -9,7 +9,4 @@
 .externalNativeBuild
 app/build/
 utilslibrary/build/
-.gitignore
-build.gradle
-lint.xml
-src/
+openCVLibrary320/build/
