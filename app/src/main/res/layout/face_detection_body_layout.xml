@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/common_color_000000"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <uk.co.senab.photoview.PhotoView
+        android:id="@+id/face_photo"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ViewStub
+        android:id="@+id/face_camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/face_camera_layout"/>
+
+    <!--  人脸灰色框 -->
+    <ImageView
+        android:id="@+id/face_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/faceframe"/>
+
+    <!-- 人脸蓝色框，检测到显示 -->
+    <ImageView
+        android:id="@+id/face_main_get"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:srcCompat="@drawable/faceframe_get"/>
+
+    <io.silvrr.installment.facedetection.ui.view.FaceDetectionFloatView
+        android:id="@+id/face_flowview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/face_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dip"
+        android:gravity="center"
+        android:text="@string/face_tips"
+        android:textColor="@android:color/white"
+        android:textSize="13dip" />
+
+    <ImageView
+        android:id="@+id/face_switch_btn"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dip"
+        android:layout_marginRight="22dip"
+        app:srcCompat="@drawable/switch_camera"
+        android:scaleType="fitCenter"/>
+
+    <TextView
+        android:id="@+id/face_detecting_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        android:visibility="gone"
+        android:background="@drawable/toast_background"
+        android:text="@string/face_detecting"
+        android:textColor="@android:color/white"
+        android:textSize="14dip"/>
+
+</RelativeLayout>

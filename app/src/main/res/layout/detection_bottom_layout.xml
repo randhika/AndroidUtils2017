@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="69dp"
+              android:layout_alignParentBottom="true"
+              android:paddingLeft="30dp"
+              android:paddingRight="30dp"
+              android:orientation="horizontal"
+              android:gravity="center_vertical"
+              android:background="@android:color/black">
+
+    <TextView
+        android:id="@+id/detection_batal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:text="Batal"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:id="@+id/detection_take_photo"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/face_takephoto"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <!-- -->
+    <TextView
+        android:id="@+id/detection_album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:text="Album"/>
+
+</LinearLayout>

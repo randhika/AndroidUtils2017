@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="alert_dialog" parent="android:Theme.Dialog">
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:textColor">@color/main_font_color</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+    <declare-styleable name="FaceSurfaceView_Style">
+        <attr name="frontCamera" format="boolean" />
+    </declare-styleable>
+
+    <!-- 人脸识别-->
+    <declare-styleable name="FaceDetection">
+        <attr name="textTop" format="dimension" />
+        <attr name="textLeft" format="dimension" />
+        <attr name="textColor"/>
+        <attr name="textSize"/>
+        <attr name="content" format="string|reference" />
+    </declare-styleable>
+
+    <!-- 自定义Toast 动画-->
+    <style name="ToastAnim">
+        <item name="android:windowEnterAnimation">@anim/toast_anim_enter</item>
+        <item name="android:windowExitAnimation">@anim/toast_anim_exit</item>
     </style>
+
 
 </resources>

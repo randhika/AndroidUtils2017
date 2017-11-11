@@ -12,4 +12,37 @@
     <string name="other_share_enter">Share via other apps</string>
     <string name="share_app_not_install">"Not installed applications"</string>
     <string name="title_referral_code">Referral Code</string>
+
+    <!-- 手动拍照界面 -->
+    <string name="take_photo_tips_focus">Please position your card in this frame. Tap the screen to
+        focus.
+    </string>
+    <!-- 人脸识别相关 -->
+    <string name="face_album">Album</string>
+    <string name="face_submit">Submit</string>
+    <string name="face_batal">Cancel</string>
+    <string name="face_tips">Please take a photo of your\nholding the card</string>
+    <string name="take_photo_drag_move">Please drag and adjust the size to align with the frame.
+    </string>
+
+    <string name="face_detection_drag">Please drag and resize the photo to\nalign it with the
+        frame
+    </string>
+
+    <string name="face_guide_start_tips">Before face detection, please put your ID card to the
+        requested area
+    </string>
+
+    <string name="btn_start">START (%1$s)</string>
+    <string name="face_detecting">Detecting...</string>
+    <string name="face_start">Know</string>
+
+    <!-- 脸部识别提示 -->
+    <string name="face_to_up">Please move higher</string>
+    <string name="face_to_down">Please move lower</string>
+    <string name="face_to_left">Please move left</string>
+    <string name="face_to_right">Please move right</string>
+    <string name="face_to_near">Please move closer</string>
+    <string name="face_to_far">Please move the farther</string>
+    <string name="val_data_failed">Request time out %1$s</string>
 </resources>

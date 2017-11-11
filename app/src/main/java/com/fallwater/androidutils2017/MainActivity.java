@@ -1,6 +1,8 @@
 package com.fallwater.androidutils2017;
 
-import android.support.v7.app.AppCompatActivity;
+import com.fallwater.androidutils2017.common.DeepLinkDispatcher;
+import com.fallwater.utilslibrary.common.BaseActivity;
+
 import android.os.Bundle;
 
 
@@ -9,11 +11,30 @@ import android.os.Bundle;
  * @author fallwater on 2017/10/30.
  * 功能描述:mainactivity
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int initLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void initDataOnCreate() {
+        DeepLinkDispatcher.getInstance().onReceiveIntent(getIntent(),this);
+    }
+
+    @Override
+    protected void initDataOnStart() {
+
     }
 }

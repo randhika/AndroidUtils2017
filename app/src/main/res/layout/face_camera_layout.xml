@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!-- <io.silvrr.installment.facedetection.ui.view.Tutorial3View-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <io.silvrr.installment.facedetection.ui.view.FaceSurfaceView
+        android:id="@+id/face_camera_surfaceview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

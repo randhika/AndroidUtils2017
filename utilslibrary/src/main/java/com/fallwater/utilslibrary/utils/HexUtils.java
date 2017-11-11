@@ -15,6 +15,24 @@ public class HexUtils {
     /**
      * byte数组转换成16进制字符串
      *
+     * @param bts
+     * @return 16进制字符串
+     */
+    public static String bytes2Hex(byte[] bts) {
+        StringBuilder hex = new StringBuilder(bts.length * 2);
+        for (byte b : bts) {
+            if ((b & 0xFF) < 0x10) {
+                hex.append("0");
+            }
+            hex.append(Integer.toHexString(b & 0xFF));
+        }
+
+        return hex.toString();
+    }
+
+    /**
+     * byte数组转换成16进制字符串
+     *
      * @return 16进制字符串
      */
     public static String parseBytes2Hex(byte[] bts) {

@@ -11,4 +11,7 @@
     <color name="common_color_49cb58">#49cb58</color>
     <color name="common_color_3e82f8">#3e82f8</color>
     <color name="main_font_color">#333</color>
+    <color name="common_color_000000">#000000</color>
+
+    <color name="toast_bkg">#b2000000</color>
 </resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <!-- 拍摄图片展示视窗 -->
+    <uk.co.senab.photoview.PhotoView
+        android:id="@+id/face_photo"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Camera视窗 -->
+    <ViewStub
+        android:id="@+id/face_camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout="@layout/back_camera_surfaceview_layout"/>
+
+    <!--  证件照摆放位置提示框 -->
+    <ImageView
+        android:id="@+id/face_position_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/take_photo_position"/>
+
+    <!-- tips信息 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="69dip"
+        android:paddingRight="25dip"
+        >
+    <io.silvrr.installment.common.view.VerticalTextView
+        android:id="@+id/face_tips"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="take_photo_tips_focus"
+        android:textColor="@android:color/white"
+        android:textSize="13dip" />
+    </LinearLayout>
+
+    <!-- 识别底部工具 -->
+    <include
+        layout="@layout/detection_bottom_layout" />
+
+</RelativeLayout>
