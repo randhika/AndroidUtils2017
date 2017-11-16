@@ -2,8 +2,12 @@
     <string name="app_name">UtilsLibrary</string>
     <string name="loading_tip">Loading&#8230;</string>
     <string name="no_result">No Result</string>
+    <!--网络相关-->
     <string name="no_network">Oops, it seems there\'s a network problem&#8230;</string>
     <string name="refresh_again">Refresh Again</string>
     <string name="networks_unavailable">No Internet Connection</string>
     <string name="network_exception">Network Connection Failed</string>
+    <string name="home_net_work_try_again">Please check you network and try again later.</string>
+    <string name="timeout">Request Timeout</string>
+    <string name="network_try_again">Please check you network and try again later.</string>
 </resources>

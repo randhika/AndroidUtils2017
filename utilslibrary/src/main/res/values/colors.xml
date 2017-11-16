@@ -8,4 +8,6 @@
     <color name="shadow">@android:color/holo_green_light</color>
     <color name="dialog_bg">@android:color/holo_green_light</color>
     <color name="main_font_color">#333</color>
+    <color name="notice_window_bg">#aa000000</color>
+    <color name="common_color_3e4a5a">#3e4a5a</color>
 </resources>
