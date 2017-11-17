@@ -1,8 +1,8 @@
 package com.fallwater.utilslibrary.rxjava;
 
 import com.fallwater.utilslibrary.bean.BaseBean;
+import com.fallwater.utilslibrary.common.AbsBaseActivity;
 import com.fallwater.utilslibrary.common.ActivityLifeCycleEvent;
-import com.fallwater.utilslibrary.common.BaseActivity;
 import com.orhanobut.hawk.Hawk;
 
 import android.support.annotation.NonNull;
@@ -45,7 +45,7 @@ public class RxJavaHelper {
      *
      * @param observable 监听
      */
-    public void requestSubscribe(BaseActivity activity,
+    public void requestSubscribe(AbsBaseActivity activity,
             Observable observable,
             final RequestSubscriber subscriber) {
         requestSubscribe(observable, subscriber, "", ActivityLifeCycleEvent.DESTROY,
@@ -61,7 +61,7 @@ public class RxJavaHelper {
      * @param isSave       是否缓存
      * @param forceRefresh 是否强制刷新
      */
-    public void requestSubscribe(BaseActivity activity,
+    public void requestSubscribe(AbsBaseActivity activity,
             Observable observable,
             final RequestSubscriber subscriber,
             String cacheKey,

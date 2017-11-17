@@ -3,28 +3,20 @@ package com.fallwater.utilslibrary.common;
 import com.fallwater.utilslibrary.R;
 import com.fallwater.utilslibrary.view.LoadingView;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 /**
- * Created by cy on 17-1-18.
+ * @author Fallwater潘建波 on 2017/11/17
+ * @mail 1667376033@qq.com
+ * 功能描述:
  */
-
-public abstract class BaseFragment extends Fragment {
+public abstract class AbsBaseEnhancedActivity extends AbsBaseActivity {
 
     protected FrameLayout mAddFrameLayout;
-
-    protected View mRootView;
 
     protected View mNoRecordView;
 
@@ -42,20 +34,14 @@ public abstract class BaseFragment extends Fragment {
 
     protected TextView mNoResultMsgTV;
 
-    private Unbinder mUnbinder;
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        Log.d("BaseFragment", "onCreateView = " + this);
-        // Inflate the layout for this fragment
-        mRootView = inflater.inflate(R.layout.fragment_base_container, null);
-        mAddFrameLayout = (FrameLayout) mRootView.findViewById(R.id.addFrameLayout);
-        mAddFrameLayout.addView(inflater.inflate(initLayoutId(), container, false));
-        mUnbinder = ButterKnife.bind(this, mRootView);
-        mNoRecordView = mRootView.findViewById(R.id.no_record_view);
-        mNetworkErrorView = mRootView.findViewById(R.id.network_error_view);
-        mLoadingView = (LoadingView) mRootView.findViewById(R.id.loading_view);
+    protected void registerOnCreate() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        mAddFrameLayout = (FrameLayout) findViewById(R.id.addFrameLayout);
+        mAddFrameLayout.addView(inflater.inflate(initContentLayoutId(), null, false));
+        mNoRecordView = findViewById(R.id.no_record_view);
+        mNetworkErrorView = findViewById(R.id.network_error_view);
+        mLoadingView = (LoadingView) findViewById(R.id.loading_view);
 
         mNoResultIconIV = (ImageView) mNoRecordView.findViewById(R.id.no_result_icon);
         mNoResultMsgTV = (TextView) mNoRecordView.findViewById(R.id.no_result_msg);
@@ -70,36 +56,12 @@ public abstract class BaseFragment extends Fragment {
                 onRefreshClick(view);
             }
         });
-
-        ViewGroup parent = (ViewGroup) mRootView.getParent();
-        if (parent != null) {
-            parent.removeView(mRootView);
-        }
-
-        return mRootView;
+        super.registerOnCreate();
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initPresenter();
-        initView(view, savedInstanceState);
-        initData();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        if (mUnbinder != null) {
-            mUnbinder.unbind();
-        }
-    }
-
-    /**
-     * 实例化Presenter,仅为mvp模式服务，其他情况下完全可以不用实现。
-     */
-    protected void initPresenter() {
-
+    protected int initLayoutId() {
+        return R.layout.fragment_base_container;
     }
 
     protected void showLoadingView() {
@@ -156,13 +118,9 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
-     * 在baseFragment中添加一个子view
+     * 把你的xml写在这里
      */
-    protected abstract int initLayoutId();
-
-    protected abstract void initView(View view, Bundle savedInstanceState);
-
-    protected abstract void initData();
+    protected abstract int initContentLayoutId();
 
     /**
      * 点击刷新按钮

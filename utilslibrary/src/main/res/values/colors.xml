@@ -10,4 +10,8 @@
     <color name="main_font_color">#333</color>
     <color name="notice_window_bg">#aa000000</color>
     <color name="common_color_3e4a5a">#3e4a5a</color>
+
+    <color name="coupon_subscript_text">#99FFFFFF</color>
+    <color name="coupon_subscript_common">#c9cccf</color>
+    <color name="coupon_subscript_common_shadow">#10c9cccf</color>
 </resources>

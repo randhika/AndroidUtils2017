@@ -16,7 +16,7 @@ import com.facebook.share.widget.ShareDialog;
 import com.fallwater.androidutils2017.R;
 import com.fallwater.androidutils2017.constant.RefferalConstant;
 import com.fallwater.androidutils2017.eventbus.ReferralEvent;
-import com.fallwater.utilslibrary.common.BaseActivity;
+import com.fallwater.utilslibrary.common.AbsBaseActivity;
 import com.fallwater.utilslibrary.utils.LoggerUtils;
 import com.fallwater.utilslibrary.view.LineTitleView;
 import com.fallwater.utilslibrary.view.PopupWindowDialog;
@@ -59,7 +59,7 @@ import butterknife.OnClick;
  *         time 2017/11/03
  *         邀请码推广活动页面
  */
-public class ReferralCodeActivity extends BaseActivity {
+public class ReferralCodeActivity extends AbsBaseActivity {
 
     private static final String TAG = "ReferralCodeActivity";
 

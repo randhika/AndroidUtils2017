@@ -5,7 +5,7 @@ import com.bumptech.glide.request.target.Target;
 import com.fallwater.androidutils2017.R;
 import com.fallwater.androidutils2017.common.ThreadPoolFactory;
 import com.fallwater.androidutils2017.utils.ToastManager;
-import com.fallwater.utilslibrary.common.BaseActivity;
+import com.fallwater.utilslibrary.common.AbsBaseActivity;
 import com.fallwater.utilslibrary.constant.Const;
 import com.fallwater.utilslibrary.utils.CommonUtils;
 import com.fallwater.utilslibrary.utils.FileUtils;
@@ -53,7 +53,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import uk.co.senab.photoview.PhotoView;
 
-public class FaceDetectionActivity extends BaseActivity
+public class FaceDetectionActivity extends AbsBaseActivity
         implements View.OnClickListener, FaceSurfaceView.CvCameraViewListener2 {
 
     private final static int REQUEST_CODE_ALBUM = 1000;

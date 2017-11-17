@@ -13,10 +13,11 @@ import rx.subjects.PublishSubject;
 
 
 /**
- * @author fallwater on 2017/11/02.
- *         功能描述:BaseActivity
+ * @author Fallwater潘建波 on 2017/11/17
+ * @mail 1667376033@qq.com
+ * 功能描述:
  */
-public abstract class BaseActivity extends BaseToolBarActivity {
+public abstract class AbsBaseActivity extends BaseToolBarActivity {
 
     public final PublishSubject<ActivityLifeCycleEvent> mLifecycleSubject = PublishSubject.create();
 

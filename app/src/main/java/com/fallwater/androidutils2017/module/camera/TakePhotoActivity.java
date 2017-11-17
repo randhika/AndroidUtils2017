@@ -3,7 +3,7 @@ package com.fallwater.androidutils2017.module.camera;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.fallwater.androidutils2017.R;
-import com.fallwater.utilslibrary.common.BaseActivity;
+import com.fallwater.utilslibrary.common.AbsBaseActivity;
 import com.fallwater.utilslibrary.constant.Const;
 import com.fallwater.utilslibrary.utils.FileUtils;
 import com.fallwater.utilslibrary.utils.GlideUtil;
@@ -36,7 +36,7 @@ import uk.co.senab.photoview.PhotoView;
  * @mail 1667376033@qq.com
  * 功能描述:拍照
  */
-public class TakePhotoActivity extends BaseActivity implements View.OnClickListener {
+public class TakePhotoActivity extends AbsBaseActivity implements View.OnClickListener {
 
     private final static int REQUEST_CODE_ALBUM = 1000;
 

@@ -9,11 +9,11 @@ import android.os.Bundle;
 
 /**
  * @author fallwater on 2017/11/02.
- *         功能描述:BaseFragmentActivity
+ *         功能描述:AbsBaseFragmentActivity
  */
-public abstract class BaseFragmentActivity extends BaseActivity {
+public abstract class AbsBaseFragmentActivity extends AbsBaseActivity {
 
-    protected abstract BaseFragment initViewAndFirstFragment(Bundle savedInstanceState);
+    protected abstract AbsBaseFragment initViewAndFirstFragment(Bundle savedInstanceState);
 
     @Override
     protected final int initLayoutId() {

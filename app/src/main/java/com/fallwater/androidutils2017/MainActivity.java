@@ -1,7 +1,7 @@
 package com.fallwater.androidutils2017;
 
 import com.fallwater.androidutils2017.common.DeepLinkDispatcher;
-import com.fallwater.utilslibrary.common.BaseActivity;
+import com.fallwater.utilslibrary.common.AbsBaseActivity;
 
 import android.os.Bundle;
 
@@ -11,7 +11,7 @@ import android.os.Bundle;
  * @author fallwater on 2017/10/30.
  * 功能描述:mainactivity
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AbsBaseActivity {
 
     @Override
     protected int initLayoutId() {
