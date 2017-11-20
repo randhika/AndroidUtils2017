@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fallwater.utilslibrary.view.CouponView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/corners_bg"
+    app:cv_is_dash_line_bottom="false"
+    app:cv_is_dash_line_left="false"
+    app:cv_is_dash_line_right="false"
+    app:cv_is_dash_line_top="false"
+    app:cv_is_semicircle_bottom="true"
+    app:cv_is_semicircle_left="true"
+    app:cv_is_semicircle_right="true"
+    app:cv_is_semicircle_top="false"
+    app:cv_semicircle_color="#ededf2"
+    app:cv_semicircle_gap="4dp"
+    app:cv_semicircle_radius="3dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="155dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/coupon_item_iv"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/ic_coupon_experience_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="26dp"
+            android:layout_toRightOf="@id/coupon_item_iv"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/coupon_amount"
+                android:textColor="#d0a561"
+                android:text="RP 200.000"
+                android:textSize="26sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/coupon_type"
+                android:textStyle="bold"
+                android:textColor="#99a8aab4"
+                android:text="*************"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/coupon_item_description"
+                android:layout_marginTop="5dp"
+                android:textColor="#993e4a5b"
+                android:lineSpacingExtra="0dp"
+                android:text="***************"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/coupon_date"
+                android:textColor="#99a8aab4"
+                android:text="2017/12/02"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/coupon_select_img"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/ic_coupon_selected"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ImageView>
+
+        <com.fallwater.utilslibrary.view.SubscriptView
+            android:id="@+id/coupon_subscript"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="18dp"
+            app:Subscript_text="Expired"
+            app:Subscript_textsize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.fallwater.utilslibrary.view.SubscriptView>
+    </RelativeLayout>
+</com.fallwater.utilslibrary.view.CouponView>

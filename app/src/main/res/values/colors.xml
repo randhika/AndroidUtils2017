@@ -12,6 +12,22 @@
     <color name="common_color_3e82f8">#3e82f8</color>
     <color name="main_font_color">#333</color>
     <color name="common_color_000000">#000000</color>
+    <color name="common_color_e5e5e5">#e5e5e5</color>
 
     <color name="toast_bkg">#b2000000</color>
+
+    <!--coupon-->
+    <color name="coupon_text_normal">#a8aab4</color>
+    <color name="coupon_text_select">#d3ad67</color>
+    <color name="coupon_indicator_color">#d4ae67</color>
+    <color name="coupon_fragment_bg">#ededf2</color>
+    <color name="coupon_subscript_text">#99FFFFFF</color>
+    <color name="coupon_subscript_common">#c9cccf</color>
+    <color name="coupon_subscript_common_shadow">#10c9cccf</color>
+    <color name="coupon_cash_rp_color">#565450</color>
+    <color name="coupon_experience_rp_color">#d0a561</color>
+    <color name="coupon_gray">#c9cccf</color>
+    <color name="coupon_noresult_textcolor">#c8c8c8</color>
+
+    <color name="divider_line">#d7d7d7</color>
 </resources>

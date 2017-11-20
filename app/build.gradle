@@ -107,4 +107,6 @@ dependencies {
     compile 'com.commit451:PhotoView:1.2.4'
     implementation project(':openCVLibrary320')
     compile 'com.facebook.fresco:fresco:1.1.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.28'
+    implementation 'com.androidkun:XTabLayout:1.1.3'
 }

@@ -45,4 +45,14 @@
     <string name="face_to_near">Please move closer</string>
     <string name="face_to_far">Please move the farther</string>
     <string name="val_data_failed">Request time out %1$s</string>
+
+    <!--Coupon-->
+    <string name="coupon_title_coupons">Coupons</string>
+    <string name="coupon_title_available">Available(%1$s)</string>
+    <string name="coupon_title_used">Used(%1$s)</string>
+    <string name="coupon_title_expired">Expired(%1$s)</string>
+    <string name="coupon_experience_coupon">Experience Coupon</string><!--体验金-->
+    <string name="coupon_cash_coupon">Cash Coupon</string><!--现金券-->
+    <string name="coupon_interest_coupon">Interest Added Coupon</string><!--收益券-->
+    <string name="coupon_no_result">You do not have a coupon yet&#8230;</string>
 </resources>
